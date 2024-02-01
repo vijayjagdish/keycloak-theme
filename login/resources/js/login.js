@@ -10,11 +10,13 @@ window.onload = function () {
     // Add focus event listener
     username.addEventListener('focus', function () {
         log_lab_username.style.display='block';
+        log_lab_username.style.color='#0B6AEA';
     });
 
     // Add blur event listener
     username.addEventListener('blur', function () {
-        log_lab_username.style.display='none';
+       // log_lab_username.style.display='none';
+       log_lab_username.style.color='#4A5965';
     });
     }
 
@@ -24,11 +26,14 @@ window.onload = function () {
     // Add focus event listener
     password.addEventListener('focus', function () {
         log_lab_password.style.display='block';
+        log_lab_password.style.color='#0B6AEA';
     });
 
     // Add blur event listener
     password.addEventListener('blur', function () {
-        log_lab_password.style.display='none';
+        //log_lab_password.style.display='none';
+        log_lab_password.style.color='#4A5965';
+       
     });
     }
 
