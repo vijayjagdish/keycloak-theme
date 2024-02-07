@@ -1,9 +1,9 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
+<@layout.registrationLayout displayMessage=!(messagesPerField.existsError('username','password') ) displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
  <#if section = "header">
    
 <div id="content_write" style="width: 100%; height: 100%; position: relative; background: #F6F9FC;text-align:center;display:inline-flex;gap:28px;flex-direction: column;">
-    <div style="width:100%;margin-top:60px;height:37px;">
+    <div style="width:100%;height:37px;">
       <div class="login_logo">
       </div>
     </div>
@@ -45,9 +45,9 @@
 				
 				
                 <div style="align-self: stretch; justify-content: center; align-items: center; gap: 24px; display: inline-flex">
-                    <div style="flex: 1 1 0; height: 0px; border: 1px #E2EBF3 solid"></div>
+                    <div style="flex: 1 1 0; height: 0px; border: 1px #E2EBF3 solid; opacity:0.5"></div>
                     <div style="color: #4A5965; font-size: 12px; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">OR</div>
-                    <div style="flex: 1 1 0; height: 0px; border: 1px #E2EBF3 solid"></div>
+                    <div style="flex: 1 1 0; height: 0px; border: 1px #E2EBF3 solid; opacity:0.5"></div>
                 </div>
 				<form  style="width:100%;" id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <div style="width:100%;align-self: stretch; height: auto; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: flex">
@@ -59,19 +59,19 @@
                     <#else>
                     class= "log_txt_hover"
                     </#if>
-                     id="log_lab_username"  style="display:none;margin-left:20px;margin-bottom:-5px;z-index:1; font-size: 12px;padding:0 8px;background:white; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">Email ID or Mobile number</label>
+                     id="log_lab_username"  style="display:none;margin-left:12px;position:absolute;margin-top:-7px;z-index:1; font-size: 12px;padding:0 8px;background:white; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">Email ID</label>
                     <input 
                     <#if messagesPerField.existsError('username','password')>
                     class= "log_btn_error" 
                     <#else>
                     class= "log_btn_hover" 
                     </#if>
-                     placeholder="Email ID or Mobile number" type="text" style="padding:16px 28px;align-self: stretch; height: 57px;  padding-top: 16px; padding-bottom: 16px; background: white; border-radius: 12px; border: 1px #0B6AEA solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex"tabindex="1" id="username"  name="username" value="${(login.username!'')}"  type="text"  autocomplete="off"
+                     placeholder="Email ID " type="text" style="padding:16px 20px;align-self: stretch; height: 57px;   background: white; border-radius: 8px; border: 1px #0B6AEA solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex"tabindex="1" id="username"  name="username" value="${(login.username!'')}"  type="text"  autocomplete="off"
                                aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                         />
                         <#if messagesPerField.existsError('username','password')>
-                            <span style="margin-left:28px;color: #EB5757; font-size: 12px; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">
-                                    ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
+                            <span style="color: #EB5757; font-size: 12px; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">
+                                  Invalid Email ID
                             </span>
                         </#if>
                     </div>
@@ -85,23 +85,23 @@
                     <#else>
                     class= "log_txt_hover"
                     </#if>
-                        id="log_lab_password"  style="display:none;margin-left:20px;margin-bottom:-5px;z-index:1; font-size: 12px;padding:0 8px;background:white; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">Password</label>
+                        id="log_lab_password"  style="display:none;margin-left:12px;position:absolute;margin-top:-8px;z-index:1; font-size: 12px;padding:0 8px;background:white; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">Password</label>
                         <input 
                         <#if messagesPerField.existsError('username','password')>
                     class= "log_btn_error" 
                     <#else>
                     class= "log_btn_hover" 
                     </#if>
-                         type="password" placeholder="Password" style="padding:16px 28px;height:57px;align-self: stretch;  padding-top: 16px; padding-bottom: 16px; background: white; border-radius: 12px; border: 1px #E2EBF3 solid; justify-content: space-between; align-items: flex-start; display: inline-flex"tabindex="2" id="password"  name="password" type="password" autocomplete="off"
+                         type="password" placeholder="Password" style="padding:16px 20px;height:57px;align-self: stretch;  background: white; border-radius: 8px; border: 1px #E2EBF3 solid; justify-content: space-between; align-items: flex-start; display: inline-flex"tabindex="2" id="password"  name="password" type="password" autocomplete="off"
                            aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                         />
                         <#if messagesPerField.existsError('username','password')>
-                        <span style="margin-left:28px;color: #EB5757; font-size: 12px; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">
-                                ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
+                        <span style="color: #EB5757; font-size: 12px; font-family: Inter; font-weight: 400; line-height: 15px; word-wrap: break-word">
+                               Invalid Password
                         </span>
                     </#if>
                         </div>
-                        <input type="button" class="password_show_icon" value="1" id="password_icon" style="margin-top:6px;width:24px;height:24px;appearance: none;border:none;" />
+                        <input type="button" class="password_show_icon" value="1" id="password_icon" style="width:24px;height:24px;appearance: none;border:none;" />
                         </div>
                         <div style="padding-left: 28px; padding-right: 28px; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
                             <div style="color: #0B6AEA; font-size: 12px; font-family: Inter; font-weight: 400;  line-height: 15px; word-wrap: break-word">

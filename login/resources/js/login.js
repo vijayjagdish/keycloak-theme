@@ -17,6 +17,9 @@ window.onload = function () {
     username.addEventListener('blur', function () {
        // log_lab_username.style.display='none';
        log_lab_username.style.color='#4A5965';
+       if(username.value==''){
+        log_lab_username.style.display='none';
+    }
     });
     }
 
@@ -33,7 +36,9 @@ window.onload = function () {
     password.addEventListener('blur', function () {
         //log_lab_password.style.display='none';
         log_lab_password.style.color='#4A5965';
-       
+        if(password.value==''){
+            log_lab_password.style.display='none';
+        }
     });
     }
 

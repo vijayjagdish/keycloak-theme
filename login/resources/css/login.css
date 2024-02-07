@@ -19,12 +19,17 @@ color: #0B6AEA;
     border:1px #EB5757 solid !important;
    
 }
+input::placeholder{
+    font-size: 16px;
+    font-family: inter;
+    font-weight: 400;
+}
 .log_txt_error{
     display:block !important;
     color:#EB5757 !important;
 }
 .google_icon{
-    background-image: url('../img/ri_google-fill.png');
+    background-image: url('../img/ri_google-fill.svg');
 }
 
 .login-pf-page-header{
@@ -44,10 +49,10 @@ body{
 
 }
 .login_logo{
-    background-image: url('../img/CC_Logo.png');
+    background-image: url('../img/CC_Logo.svg');
     background-repeat: no-repeat;
     width: 152px;
-    height: 37px;
+    height: 32px;
     display: inline-flex;
     justify-content: center;
 }
@@ -56,18 +61,20 @@ body{
 }
 
 .password_show_icon{
-    background-image: url('../img/quill_eye.png');
-    margin-right: 28px;
+    background-image: url('../img/eye_icon.svg');
+    margin-right: 20px;
     background-color: white;
     position: absolute;
+    margin-top: 15px ;
     background-repeat: no-repeat;
     text-indent: -9999px;
 }
 .password_hide_icon{
-    background-image: url('../img/eye_slash_icon.png');
-    margin-right: 28px;
+    background-image: url('../img/eye_slash.svg');
+    margin-right: 20px;
     background-color: white;
     position: absolute;
+    margin-top: 7px ;
     background-repeat: no-repeat;
     text-indent: -9999px;
 }
@@ -88,6 +95,7 @@ body{
     margin:0;
 }
 .card-pf{
+    padding: 60px 0;
     gap:28px;
     display:inline-flex;
     flex-direction: column;
